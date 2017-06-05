@@ -11,6 +11,7 @@ from phonenumbers import NumberParseException
 if sys.version_info[0] == 3:
     string_types = str
 else:
+    from past.types import basestring
     string_types = basestring
 
 
@@ -47,8 +48,8 @@ class PhoneNumber(phonenumbers.PhoneNumber):
         """
         return phonenumbers.is_valid_number(self)
 
-    def format_as(self, format):
-        return phonenumbers.format_number(self, format)
+    def format_as(self, number_format):
+        return phonenumbers.format_number(self, number_format)
 
     @property
     def as_international(self):
